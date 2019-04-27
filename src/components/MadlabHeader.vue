@@ -1,0 +1,39 @@
+<template>
+  <header>
+    <nav>
+      <a href="http://madlabgroup.com/" target="_blank">
+        <img src="../assets/logo.png" alt="MadLab Group" />
+      </a>
+      <img src="../assets/moosecock_rooster_final.png" alt="Moose Cock" />
+    </nav>
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'MadlabHeader',
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+header {
+  border-bottom:2px solid #777;
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    > a img {
+      height: 16vw;
+      max-height:90px;
+    }
+    
+    > img {
+      max-height: 24vw;
+      height: 140px;
+      margin-top: -20px;
+    }
+  }
+  
+}
+</style>
