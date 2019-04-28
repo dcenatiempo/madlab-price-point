@@ -1,10 +1,12 @@
 <template>
-  <div>
-    Rate Card
-    <label>Base Monthly Rate</label>
-    <money-input v-model="monthlyRate"/>
-    <label>PT Rate</label>
-    <money-input v-model="ptRate"/>
+  <div id="rate-card" class="card">
+    <h3>Rate Options</h3>
+    <div class="list">
+      <label>Base Monthly Rate</label>
+      <money-input v-model="monthlyRate"/>
+      <label>PT Rate</label>
+      <money-input v-model="ptRate"/>
+    </div>
   </div>
 </template>
 
@@ -25,6 +27,17 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+#rate-card {
+  .list {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-gap: .5em;
+    align-items: center;
+    input {
+      width: 5em;
+      text-align: right;
+    }
+  }
+}
 </style>

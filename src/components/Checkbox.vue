@@ -1,13 +1,11 @@
 <template>
-  <label class="checkbox" :for="id">
+  <label class="checkbox" :for="`${id}-checkbox`" ref="checkbox">
     <input type="checkbox"
-      :id="id"
+      :id="`${id}-checkbox`"
       @input="handleInput"
       :checked="value"/>
     <div class="box">
-    <span v-show="internalValue">
-      <svg class="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
-    </span>
+      <svg v-show="internalValue" class="check" xmlns="http://www.w3.org/2000/svg" :width="em" :height="em" :viewBox="`0 0 24 24`"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
     </div>
   </label>
 </template>
@@ -22,6 +20,7 @@ export default {
   data() {
     return {
       internalValue: false,
+      em: '16',
     }
   },
   props: {
@@ -44,22 +43,37 @@ export default {
   },
   created() {
     this.internalValue = this.value
+  },
+  mounted() {
+    this.em = window.getComputedStyle(this.$refs.checkbox)['font-size'].replace(/px/g, '');
   }
 }
 </script>
 
 <style scoped lang="scss">
 .checkbox {
+  position: relative;
+
   input {
-    display: none;
+    z-index: -9999 !important;
+    height: 1.4em !important;
+    width: 1.4em !important;
+    margin: 0 !important;
+    position: absolute !important;
   }
   .box {
-    height: 25px;
-    width: 25px;
-    border: solid 1px black;
+    background: white;
+    height: 1.4em;
+    width: 1.4em;
+    border: solid 1px #2c3e50;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .check {
-    color: white;
+    margin-top:.1em;
+    fill: #2c3e50;
   }
 }
 </style>

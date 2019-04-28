@@ -1,12 +1,12 @@
 <template>
-  <div>
-    Rate Card
-    <label>Weekly</label>
-    <checkbox id="weekly" v-model="weekly"/>
-    <label>Every 2 Weeks</label>
-    <checkbox id="twoWeeks" v-model="twoWeeks"/>
-    <label>Monthly</label>
-    <checkbox id="monthly" v-model="monthly"/>
+  <div id="frequency-card" class="card">
+    <h3>Frequency Options</h3>
+    <div class="list">
+      <template v-for="option in frequecyOptions">
+        <checkbox :key="`frequency-inpute-${option.id}`" :id="option.id" v-model="option.value"/>
+        <label :key="`frequency-label-${option.id}`" :for="option.id">{{option.label}}</label>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -20,16 +20,41 @@ export default {
   },
   data() {
     return  {
-      weekly: false,
-      twoWeeks: false,
-      biMonthly: false,
-      monthly: true,
-      quarterly: false
+      frequecyOptions: [
+        {
+          id: "weekly",
+          value: false,
+          label: "Weekly",
+        }, {
+          id: "twoWeeks",
+          value: false,
+          label: "Every 2 Weeks",
+        }, {
+          id: "biMonthly",
+          value: false,
+          label: "Twice a Month",
+        }, {
+          id: "monthly",
+          value: true,
+          label: "Monthly",
+        }, {
+          id: "quarterly",
+          value: false,
+          label: "Quarterly",
+        },
+      ]
     }
   }
 }
 </script>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+#frequency-card {
+  .list {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-gap: .5em;
+    align-items: center;
+  }
+}
 </style>

@@ -2,10 +2,12 @@
   <div id="app">
     <MadlabHeader />
     <main>
-    <h1>Hybrid Pricing Calculator</h1>
-    <rate-card />
-    <plan-card />
-    <frequency-card />
+      <h1>Hybrid Pricing Calculator</h1>
+      <div class="options">
+        <rate-card />
+        <plan-card />
+        <frequency-card />
+      </div>
     </main>
     <footer><span>©2019 Madlab Group</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
   </div>
@@ -45,14 +47,38 @@ export default {
   display: flex;
   flex-flow: column nowrap;
 
+  input {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1em;
+    padding: .125em;
+    padding-bottom: 0;
+  }
+  label {
+    font-size:1.1em;
+    font-weight: 500;
+  }
+
   main {
     flex-grow: 1;
+
+    .options {
+      display: flex;
+      flex-flow: row wrap;
+    }
   }
 
   footer {
     padding: 5px;
     display: grid;
     text-align: center;
+  }
+
+  .card {
+    border: solid 1px gray;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
   }
 }
 </style>
