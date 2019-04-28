@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import IntegerInput from '@/components/IntegerInput.vue';
-import Checkbox from '@/components/Checkbox.vue';
+import IntegerInput from '@/components/inputs/IntegerInput.vue';
+import Checkbox from '@/components/inputs/Checkbox.vue';
 
 export default {
   name: 'PlanCard',

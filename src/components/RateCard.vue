@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import MoneyInput from '@/components/MoneyInput.vue';
+import MoneyInput from '@/components/inputs/MoneyInput.vue';
 
 export default {
   name: 'RateCard',
