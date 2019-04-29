@@ -5,7 +5,11 @@
       <template v-for="option in planOptions">
         <checkbox :key="`frequency-check-${option.id}`" :id="option.id" v-model="option.checked"/>
         <label :key="`frequency-label-${option.id}`" :for="option.id">{{option.label}}</label>
-        <integer-input :key="`frequency-input-${option.id}`" v-model="option.value"/>
+        <integer-input
+            :key="`frequency-input-${option.id}`"
+            v-model="option.value"
+            :min="0"
+            :max="365"/>
       </template>
     </div>
   </div>

@@ -3,9 +3,15 @@
     <h3>Rate Options</h3>
     <div class="list">
       <label>Base Monthly Rate</label>
-      <money-input v-model="monthlyRate"/>
+      <money-input
+          v-model="monthlyRate"
+          :min="100"
+          :max="1000"/>
       <label>PT Rate</label>
-      <money-input v-model="ptRate"/>
+      <money-input
+          v-model="ptRate"
+          :min="60"
+          :max="500"/>
     </div>
   </div>
 </template>
