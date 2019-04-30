@@ -1,15 +1,15 @@
 <template>
-  <div id="rate-card" class="card">
+  <div id="rate-input-card" class="card">
     <h3>Rate Options</h3>
     <div class="list">
-      <label>Base Monthly Rate</label>
+      <label>Monthly Rate</label>
       <money-input
-          v-model="monthlyRate"
+          v-model="rateOptions.monthlyRate"
           :min="100"
           :max="1000"/>
       <label>PT Rate</label>
       <money-input
-          v-model="ptRate"
+          v-model="rateOptions.ptRate"
           :min="60"
           :max="500"/>
     </div>
@@ -20,21 +20,20 @@
 import MoneyInput from '@/components/inputs/MoneyInput.vue';
 
 export default {
-  name: 'RateCard',
+  name: 'RateInputCard',
   components: {
     MoneyInput,
   },
   data() {
     return  {
-      monthlyRate: 100,
-      ptRate: 10,
     }
-  }
+  },
+  props: ['rateOptions']
 }
 </script>
 
 <style lang="scss">
-#rate-card {
+#rate-input-card {
   .list {
     display: grid;
     grid-template-columns: max-content max-content;

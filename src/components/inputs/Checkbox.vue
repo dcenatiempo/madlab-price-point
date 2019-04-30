@@ -1,9 +1,11 @@
 <template>
   <label class="checkbox" :for="`${id}-checkbox`" ref="checkbox">
-    <input type="checkbox"
-      :id="`${id}-checkbox`"
-      @input="handleInput"
-      :checked="value"/>
+    <input
+        type="checkbox"
+        :id="`${id}-checkbox`"
+        @input="handleInput"
+        :checked="value"
+        :disabled="disabled"/>
     <div class="box">
       <svg v-show="internalValue" class="check" xmlns="http://www.w3.org/2000/svg" :width="em" :height="em" :viewBox="`0 0 24 24`"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
     </div>
@@ -31,6 +33,10 @@ export default {
     id: {
       type: String,
       default: '',
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   // computed: {},

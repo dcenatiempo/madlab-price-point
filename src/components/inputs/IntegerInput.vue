@@ -40,8 +40,8 @@ export default {
     },
     format(event, shouldForceRange = false) {
       let amount = event.target.value;
-
-      amount = parseInt(amount.replace(/\D/g,''));
+      amount = amount.replace(/\D/g,'');
+      amount = '' === amount ? 0 : parseInt(amount)
 
       if (shouldForceRange) {
         amount = this.forceRange(amount);

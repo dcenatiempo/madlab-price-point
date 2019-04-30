@@ -4,28 +4,38 @@
     <main>
       <h1>Hybrid Pricing Calculator</h1>
       <div class="options">
-        <rate-card />
-        <plan-card />
-        <frequency-card />
+        <rate-input-card :rate-options="rateOptions"/>
+        <plan-input-card :plan-options="planOptions"/>
+        <frequency-input-card :frequency-options="frequencyOptions"/>
       </div>
+      <display
+          :rate-options="rateOptions"
+          :plan-options="planOptions"
+          :frequency-options="frequencyOptions"/>
     </main>
     <footer><span>©2019 Madlab Group</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import MadlabHeader from '@/components/MadlabHeader.vue';
-import RateCard from '@/components/RateCard.vue';
-import PlanCard from '@/components/PlanCard.vue';
-import FrequencyCard from '@/components/FrequencyCard.vue';
+import RateInputCard from '@/components/RateInputCard.vue';
+import PlanInputCard from '@/components/PlanInputCard.vue';
+import FrequencyInputCard from '@/components/FrequencyInputCard.vue';
+import Display from '@/components/Display.vue';
 
 export default {
   name: 'app',
   components: {
     MadlabHeader,
-    RateCard,
-    PlanCard,
-    FrequencyCard,
+    RateInputCard,
+    PlanInputCard,
+    FrequencyInputCard,
+    Display,
+  },
+  computed: {
+    ...mapState(['frequencyOptions', 'rateOptions', 'planOptions']),
   }
 }
 </script>
@@ -61,6 +71,9 @@ export default {
 
   main {
     flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 
     .options {
       display: flex;
