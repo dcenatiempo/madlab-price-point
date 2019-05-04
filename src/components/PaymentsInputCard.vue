@@ -1,15 +1,15 @@
 <template>
-  <div id="frequency-input-card" class="card">
+  <div id="payments-input-card" class="card">
     <h3>Payment Options</h3>
     <div class="list">
-      <template v-for="option in frequencyOptions">
+      <template v-for="option in paymentsOptions">
         <checkbox
-            :key="`frequency-input-${option.id}`"
+            :key="`payments-input-${option.id}`"
             :id="option.id"
             v-model="option.value"
-            @input="setFrequencyOptions(frequencyOptions)"
+            @input="setPaymentsOptions(paymentsOptions)"
             :disabled="disabled(option)" />
-        <label :key="`frequency-label-${option.id}`" :for="option.id">{{option.label}}</label>
+        <label :key="`payments-label-${option.id}`" :for="option.id">{{option.label}}</label>
       </template>
     </div>
   </div>
@@ -20,18 +20,18 @@ import { mapMutations } from 'vuex';
 import Checkbox from '@/components/inputs/Checkbox.vue';
 
 export default {
-  name: 'FrequencyInputCard',
+  name: 'PaymentsInputCard',
   components: {
     Checkbox,
   },
-  props: ['frequencyOptions'],
+  props: ['paymentsOptions'],
   computed: {
     count() {
-      return this.frequencyOptions.filter(option => true === option.value).length;
+      return this.paymentsOptions.filter(option => true === option.value).length;
     }
   },
   methods: {
-    ...mapMutations(['setFrequencyOptions']),
+    ...mapMutations(['setPaymentsOptions']),
     disabled(option) {
       return 1 >= this.count && option.value
     }
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
-#frequency-input-card {
+#payments-input-card {
   .list {
     display: grid;
     grid-template-columns: min-content max-content;

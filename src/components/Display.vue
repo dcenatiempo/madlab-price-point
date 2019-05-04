@@ -9,8 +9,8 @@
     </div>
     <plan-card
         :key="`plan-card-${option.id}`"
-        v-for="option in filteredFrequencyOptions"
-        :frequency-option="option"
+        v-for="option in filteredPaymentsOptions"
+        :payments-option="option"
         :plan-options="filteredPlanOptions"
         :rate-options="rateOptions"/>
   </div>
@@ -23,10 +23,10 @@ import PlanRow from '@/components/PlanRow.vue';
 export default {
   name: 'Display',
   components: { PlanCard, PlanRow },
-  props: ['planOptions', 'frequencyOptions', 'rateOptions'],
+  props: ['planOptions', 'paymentsOptions', 'rateOptions'],
   computed: {
-    filteredFrequencyOptions() {
-      return this.frequencyOptions.filter(option => true === option.value);
+    filteredPaymentsOptions() {
+      return this.paymentsOptions.filter(option => true === option.value);
     },
     filteredPlanOptions() {
       return this.planOptions.filter(option => true === option.checked);

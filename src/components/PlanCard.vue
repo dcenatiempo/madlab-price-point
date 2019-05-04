@@ -1,12 +1,12 @@
 <template>
   <div class="plan-card">
-    <h3>{{frequencyOption.label}}</h3>
+    <h3>{{paymentsOption.label}}</h3>
     <plan-row
         v-for="plan in planOptions"
-        :key="`plan-row-${frequencyOption.id}-${plan.id}`"
+        :key="`plan-row-${paymentsOption.id}-${plan.id}`"
         :plan-option="plan"
         :rate-options="rateOptions"
-        :frequency-option="frequencyOption"/>
+        :payments-option="paymentsOption"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import PlanRow from '@/components/PlanRow.vue';
 export default {
   name: 'PlanCard',
   components: { PlanRow },
-  props: ['frequencyOption', 'planOptions', 'rateOptions'],
+  props: ['paymentsOption', 'planOptions', 'rateOptions'],
   computed: {
   }
 }

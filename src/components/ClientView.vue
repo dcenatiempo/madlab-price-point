@@ -10,7 +10,7 @@
       <display
           :rate-options="rateOptions"
           :plan-options="planOptions"
-          :frequency-options="frequencyOptions"/>
+          :payments-options="paymentsOptions"/>
     </main>
     <footer><span>©2019 {{gymnName}}</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
   </div>
@@ -32,7 +32,7 @@ export default {
     SwitchView,
   },
   computed: {
-    ...mapState(['frequencyOptions', 'rateOptions', 'planOptions', 'gymnName']),
+    ...mapState(['paymentsOptions', 'rateOptions', 'planOptions', 'gymnName']),
   },
   methods: {
     ...mapMutations(['resetStore']),

@@ -9,7 +9,7 @@
             v-model="option.checked"
             @input="setPlanOptions(planOptions)"
             :disabled="disabled(option)" />
-        <label :key="`frequency-label-${option.id}`" :for="option.id">{{option.label}}</label>
+        <label :key="`plan-label-${option.id}`" :for="option.id">{{option.label}}</label>
         <integer-input
             :key="`plan-input-${option.id}`"
             v-model="option.value"

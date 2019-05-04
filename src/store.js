@@ -5,7 +5,6 @@ import vuejsStorage from 'vuejs-storage';
 Vue.use(Vuex)
 
 const defaultState = {
-  gymnName: 'Madlab School of Fitness',
   rateOptions: {
     monthlyRate: 100,
     ptRate: 60,
@@ -38,7 +37,7 @@ const defaultState = {
       label: "Platinum",
     }
   ],
-  frequencyOptions: [
+  paymentsOptions: [
     {
       id: "weekly",
       value: true,
@@ -74,15 +73,19 @@ const defaultState = {
 };
 
 export default new Vuex.Store({
-  state: {...JSON.parse(JSON.stringify(defaultState)), view: 'Coach'},
+  state: {
+    ...JSON.parse(JSON.stringify(defaultState)),
+    view: 'Coach',
+    gymnName: 'Madlab School of Fitness',
+    },
   getters: {
   },
   mutations: {
     setRateOptions(state, options) {
       state.rateOptions = options;
     },
-    setFrequencyOptions(state, options) {
-      state.frequencyOptions = options;
+    setPaymentsOptions(state, options) {
+      state.paymentsOptions = options;
     },
     setPlanOptions(state, options) {
       state.planOptions = options;
@@ -90,7 +93,7 @@ export default new Vuex.Store({
     resetStore(state) {
       // state = JSON.parse(JSON.stringify(defaultState));
       state.rateOptions = JSON.parse(JSON.stringify(defaultState.rateOptions));
-      state.frequencyOptions = JSON.parse(JSON.stringify(defaultState.frequencyOptions));
+      state.paymentsOptions = JSON.parse(JSON.stringify(defaultState.paymentsOptions));
       state.planOptions = JSON.parse(JSON.stringify(defaultState.planOptions));
     },
     switchView(state) {
@@ -104,7 +107,7 @@ export default new Vuex.Store({
   },
   plugins: [
     vuejsStorage({
-      keys: ['rateOptions', 'planOptions', 'frequencyOptions'],
+      keys: ['rateOptions', 'planOptions', 'paymentsOptions'],
       namespace: 'madlab-price-point-calculator-persist',
     })
   ]

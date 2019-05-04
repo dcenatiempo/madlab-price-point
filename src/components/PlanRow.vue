@@ -21,7 +21,7 @@ export default {
     rateOptions: {
       default: () => []
     },
-    frequencyOption: {
+    paymentsOption: {
       default: () => {}
     },
     labelOnly: {
@@ -37,7 +37,7 @@ export default {
       let totalMonthly = 12 * this.rateOptions.monthlyRate;
       let yearlyCost = totalPT + totalMonthly;
 
-      return formatter.format(Math.round(yearlyCost / this.frequencyOption.divisor));
+      return formatter.format(Math.round(yearlyCost / this.paymentsOption.divisor));
     }
   }
 }

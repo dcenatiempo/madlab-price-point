@@ -9,12 +9,12 @@
         <button @click="resetStore">Reset</button>
         <rate-input-card :rate-options="rateOptions"/>
         <plan-input-card :plan-options="planOptions"/>
-        <frequency-input-card :frequency-options="frequencyOptions"/>
+        <payments-input-card :payments-options="paymentsOptions"/>
       </div>
       <display
           :rate-options="rateOptions"
           :plan-options="planOptions"
-          :frequency-options="frequencyOptions"/>
+          :payments-options="paymentsOptions"/>
     </main>
     <footer><span>©2019 Madlab Group</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
   </div>
@@ -25,7 +25,7 @@ import { mapState, mapMutations } from 'vuex';
 import MadlabHeader from '@/components/MadlabHeader.vue';
 import RateInputCard from '@/components/RateInputCard.vue';
 import PlanInputCard from '@/components/PlanInputCard.vue';
-import FrequencyInputCard from '@/components/FrequencyInputCard.vue';
+import PaymentsInputCard from '@/components/PaymentsInputCard.vue';
 import Display from '@/components/Display.vue';
 import PDF from '@/components/PDF.vue';
 import SwitchView from '@/components/SwitchView.vue';
@@ -36,13 +36,13 @@ export default {
     MadlabHeader,
     RateInputCard,
     PlanInputCard,
-    FrequencyInputCard,
+    PaymentsInputCard,
     Display,
     PDF,
     SwitchView,
   },
   computed: {
-    ...mapState(['frequencyOptions', 'rateOptions', 'planOptions']),
+    ...mapState(['paymentsOptions', 'rateOptions', 'planOptions']),
   },
   methods: {
     ...mapMutations(['resetStore']),
