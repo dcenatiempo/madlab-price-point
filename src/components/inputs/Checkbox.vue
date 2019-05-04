@@ -13,9 +13,9 @@
 </template>
 
 <script>
-function randomId(length) {
-   return window.crypto.getRandomValues(new Uint32Array(1))[0];
-}
+// function randomId() {
+//    return window.crypto.getRandomValues(new Uint32Array(1))[0];
+// }
 
 export default {
   name: 'checkbox',
@@ -42,16 +42,22 @@ export default {
   // computed: {},
   methods: {
     handleInput(event) {
-      this.internalValue = true=== event.target.checked;
-
-      this.$emit('input', this.internalValue);
+      this.$emit('input', event.target.checked);
+    },
+    setInternalValue(value) {
+      this.internalValue = value;
     }
   },
   created() {
-    this.internalValue = this.value
+    this.setInternalValue(this.value);
   },
   mounted() {
     this.em = window.getComputedStyle(this.$refs.checkbox)['font-size'].replace(/px/g, '');
+  },
+  watch: {
+    value(value) {
+      this.setInternalValue(value);
+    }
   }
 }
 </script>

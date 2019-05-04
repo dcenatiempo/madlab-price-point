@@ -1,7 +1,6 @@
 <template>
   <input type="text"
     v-model="amount"
-    @input="format"
     @change="change"/>
 </template>
 
@@ -57,11 +56,19 @@ export default {
     },
     change(event) {
       this.format(event, true);
+    },
+    setAmount(value) {
+      let rangedValue = this.forceInRange(value);
+      this.amount = formatter.format(rangedValue);
     }
   },
   created() {
-    let rangedValue = this.forceInRange(this.value);
-    this.amount = formatter.format(rangedValue);
+    this.setAmount(this.value);
+  },
+  watch: {
+    value(value) {
+      this.setAmount(value);
+    }
   }
 }
 </script>

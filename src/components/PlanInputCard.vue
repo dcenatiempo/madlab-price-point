@@ -4,14 +4,16 @@
     <div class="list">
       <template v-for="option in planOptions">
         <checkbox
-            :key="`frequency-check-${option.id}`"
+            :key="`plan-check-${option.id}`"
             :id="option.id"
             v-model="option.checked"
+            @input="setPlanOptions(planOptions)"
             :disabled="disabled(option)" />
         <label :key="`frequency-label-${option.id}`" :for="option.id">{{option.label}}</label>
         <integer-input
-            :key="`frequency-input-${option.id}`"
+            :key="`plan-input-${option.id}`"
             v-model="option.value"
+            @input="setPlanOptions(planOptions)"
             :min="0"
             :max="365"/>
       </template>
@@ -20,6 +22,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import IntegerInput from '@/components/inputs/IntegerInput.vue';
 import Checkbox from '@/components/inputs/Checkbox.vue';
 
@@ -37,9 +40,10 @@ export default {
   computed: {
     count() {
       return this.planOptions.filter(option => true === option.checked).length;
-    }
+    },
   },
   methods: {
+    ...mapMutations(['setPlanOptions']),
     disabled(option) {
       return 1 >= this.count && option.checked
     }

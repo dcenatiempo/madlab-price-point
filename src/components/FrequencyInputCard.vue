@@ -7,6 +7,7 @@
             :key="`frequency-input-${option.id}`"
             :id="option.id"
             v-model="option.value"
+            @input="setFrequencyOptions(frequencyOptions)"
             :disabled="disabled(option)" />
         <label :key="`frequency-label-${option.id}`" :for="option.id">{{option.label}}</label>
       </template>
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import Checkbox from '@/components/inputs/Checkbox.vue';
 
 export default {
@@ -29,6 +31,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setFrequencyOptions']),
     disabled(option) {
       return 1 >= this.count && option.value
     }

@@ -5,11 +5,13 @@
       <label>Monthly Rate</label>
       <money-input
           v-model="rateOptions.monthlyRate"
+          @input="setRateOptions(rateOptions)"
           :min="100"
           :max="1000"/>
       <label>PT Rate</label>
       <money-input
           v-model="rateOptions.ptRate"
+          @input="setRateOptions(rateOptions)"
           :min="60"
           :max="500"/>
     </div>
@@ -17,6 +19,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import MoneyInput from '@/components/inputs/MoneyInput.vue';
 
 export default {
@@ -28,7 +31,10 @@ export default {
     return  {
     }
   },
-  props: ['rateOptions']
+  props: ['rateOptions'],
+  methods: {
+    ...mapMutations(['setRateOptions']),
+  }
 }
 </script>
 

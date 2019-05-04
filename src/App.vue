@@ -4,6 +4,7 @@
     <main>
       <h1>Hybrid Pricing Calculator</h1>
       <div class="options">
+        <button @click="resetStore">Reset</button>
         <rate-input-card :rate-options="rateOptions"/>
         <plan-input-card :plan-options="planOptions"/>
         <frequency-input-card :frequency-options="frequencyOptions"/>
@@ -18,7 +19,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import MadlabHeader from '@/components/MadlabHeader.vue';
 import RateInputCard from '@/components/RateInputCard.vue';
 import PlanInputCard from '@/components/PlanInputCard.vue';
@@ -36,6 +37,9 @@ export default {
   },
   computed: {
     ...mapState(['frequencyOptions', 'rateOptions', 'planOptions']),
+  },
+  methods: {
+    ...mapMutations(['resetStore']),
   }
 }
 </script>
