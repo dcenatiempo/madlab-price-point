@@ -6,7 +6,8 @@
         :key="`plan-row-${paymentsOption.id}-${plan.id}`"
         :plan-option="plan"
         :rate-options="rateOptions"
-        :payments-option="paymentsOption"/>
+        :payments-option="paymentsOption"
+        :frequency-option="frequencyOption"/>
   </div>
 </template>
 
@@ -16,7 +17,7 @@ import PlanRow from '@/components/PlanRow.vue';
 export default {
   name: 'PlanCard',
   components: { PlanRow },
-  props: ['paymentsOption', 'planOptions', 'rateOptions'],
+  props: ['paymentsOption', 'planOptions', 'rateOptions', 'frequencyOption'],
   computed: {
   }
 }

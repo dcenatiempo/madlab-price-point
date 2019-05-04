@@ -1,7 +1,5 @@
 <template>
-  <div id="pdf-maker">
-    <button @click="createPDF">Create PDF</button>
-  </div>
+  <button @click="createPDF">Create PDF</button>
 </template>
 
 <script>
@@ -14,7 +12,7 @@ export default {
   computed: {},
   methods: {
     createPDF() {
-      let element = document.querySelector('#display');
+      let element = document.querySelector('#display-container');
       let opt = {
         margin:       1,
         filename:     'myfile.pdf',
@@ -30,7 +28,4 @@ export default {
 </script>
 
 <style lang="scss">
-#pdf-maker {
-
-}
 </style>

@@ -7,10 +7,7 @@
         <p-d-f />
         <switch-view />
       </div>
-      <display
-          :rate-options="rateOptions"
-          :plan-options="planOptions"
-          :payments-options="paymentsOptions"/>
+      <display />
     </main>
     <footer><span>©2019 {{gymnName}}</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
   </div>
@@ -20,8 +17,8 @@
 import { mapState, mapMutations } from 'vuex';
 import MadlabHeader from '@/components/MadlabHeader.vue';
 import Display from '@/components/Display.vue';
-import PDF from '@/components/PDF.vue';
-import SwitchView from '@/components/SwitchView.vue';
+import PDF from '@/components/buttons/PDF.vue';
+import SwitchView from '@/components/buttons/SwitchView.vue';
 
 export default {
   name: 'ClientView',
@@ -32,7 +29,7 @@ export default {
     SwitchView,
   },
   computed: {
-    ...mapState(['paymentsOptions', 'rateOptions', 'planOptions', 'gymnName']),
+    ...mapState(['gymnName']),
   },
   methods: {
     ...mapMutations(['resetStore']),
@@ -41,5 +38,12 @@ export default {
 </script>
 
 <style lang="scss">
-
+#client-view {
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+}
 </style>

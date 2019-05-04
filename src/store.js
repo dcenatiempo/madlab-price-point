@@ -69,7 +69,21 @@ const defaultState = {
       label: "Quarterly",
       divisor: 4
     },
-  ]
+  ],
+  frequencyOptions: [
+    {
+      id: "unlimited",
+      label: 'Unlimited',
+      checked: true,
+      multiplier: 1
+    },
+    {
+      id: "2x-week",
+      label: '2x/Week',
+      checked: false,
+      multiplier: .7,
+    },
+  ],
 };
 
 export default new Vuex.Store({
@@ -90,11 +104,18 @@ export default new Vuex.Store({
     setPlanOptions(state, options) {
       state.planOptions = options;
     },
+    setFrequencyOptions(state, options) {
+      state.frequencyOptions = options;
+    },
+    setGymnName(state, name) {
+      state.gymnName = name;
+    },
     resetStore(state) {
       // state = JSON.parse(JSON.stringify(defaultState));
       state.rateOptions = JSON.parse(JSON.stringify(defaultState.rateOptions));
       state.paymentsOptions = JSON.parse(JSON.stringify(defaultState.paymentsOptions));
       state.planOptions = JSON.parse(JSON.stringify(defaultState.planOptions));
+      state.frequencyOptions = JSON.parse(JSON.stringify(defaultState.frequencyOptions));
     },
     switchView(state) {
       if ('Client' === state.view)
@@ -107,7 +128,7 @@ export default new Vuex.Store({
   },
   plugins: [
     vuejsStorage({
-      keys: ['rateOptions', 'planOptions', 'paymentsOptions'],
+      keys: ['rateOptions', 'planOptions', 'paymentsOptions', 'gymnName'],
       namespace: 'madlab-price-point-calculator-persist',
     })
   ]

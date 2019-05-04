@@ -1,19 +1,15 @@
 <template>
-  <div id="switch-view">
-    <button @click="switchView">{{btnText}}</button>
-  </div>
+  <button @click="switchView">{{btnText}}</button>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex';
 export default {
   name: 'SwitchView',
-  components: {},
-  props: [],
   computed: {
     ...mapState(['view']),
     btnText() {
-      return this.view + ' View';
+      return `Switch to ${this.view} View`;
     }
   },
   methods: {
@@ -23,7 +19,5 @@ export default {
 </script>
 
 <style lang="scss">
-#switch-view {
 
-}
 </style>

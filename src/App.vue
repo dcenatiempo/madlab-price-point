@@ -39,6 +39,12 @@ export default {
   display: flex;
   flex-flow: column nowrap;
 
+  button {
+    font-size: 1em;
+    padding: 1em;
+    border: 1px solid gray;
+    border-radius: .25em;
+  }
   input {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     font-size: 1em;
@@ -51,29 +57,10 @@ export default {
     font-weight: 500;
   }
 
-  main {
-    flex-grow: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-
-    .options {
-      display: flex;
-      flex-flow: row wrap;
-    }
-  }
-
   footer {
     padding: 5px;
     display: grid;
     text-align: center;
-  }
-
-  .card {
-    border: solid 1px gray;
-    border-radius: 4px;
-    padding: 1rem;
-    margin: 1rem;
   }
 }
 </style>

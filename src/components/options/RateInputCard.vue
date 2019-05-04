@@ -1,7 +1,10 @@
 <template>
-  <div id="rate-input-card" class="card">
-    <h3>Rate Options</h3>
+  <option-group
+      id="rate-input-card"
+      label="Gymn Options"
+      :tooltip="null">
     <div class="list">
+      <gymn-name-input />
       <label>Monthly Rate</label>
       <money-input
           v-model="rateOptions.monthlyRate"
@@ -15,20 +18,25 @@
           :min="60"
           :max="500"/>
     </div>
-  </div>
+  </option-group>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
+import OptionGroup from '@/components/options/OptionGroup.vue';
 import MoneyInput from '@/components/inputs/MoneyInput.vue';
+import GymnNameInput from '@/components/options/GymnNameInput.vue';
 
 export default {
   name: 'RateInputCard',
   components: {
+    OptionGroup,
     MoneyInput,
+    GymnNameInput,
   },
   data() {
     return  {
+      tooltip: 'Enter gymn name, monthly unlimited class rate, and pt session rate'
     }
   },
   props: ['rateOptions'],
@@ -45,9 +53,13 @@ export default {
     grid-template-columns: max-content max-content;
     grid-gap: .5em;
     align-items: center;
-    input {
+
+    input:not(#gymn-name-input) {
       width: 5em;
       text-align: right;
+    }
+    #gymn-name-input {
+      grid-column: 1 / 3;
     }
   }
 }

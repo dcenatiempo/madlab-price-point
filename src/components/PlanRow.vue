@@ -24,17 +24,20 @@ export default {
     paymentsOption: {
       default: () => {}
     },
+    frequencyOption: {
+      default: () => {}
+    },
     labelOnly: {
       type: Boolean,
       default: false,
-    }
     },
+  },
   computed: {
     amount() {
       if (this.labelOnly) return 0;
 
       let totalPT = this.planOption.value * this.rateOptions.ptRate;
-      let totalMonthly = 12 * this.rateOptions.monthlyRate;
+      let totalMonthly = 12 * this.rateOptions.monthlyRate * this.frequencyOption.multiplier;
       let yearlyCost = totalPT + totalMonthly;
 
       return formatter.format(Math.round(yearlyCost / this.paymentsOption.divisor));

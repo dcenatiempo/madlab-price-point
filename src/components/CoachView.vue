@@ -3,53 +3,44 @@
     <madlab-header view="Coach"/>
     <main>
       <h1>Hybrid Pricing Calculator</h1>
-      <div class="options">
-        <p-d-f />
-        <switch-view />
-        <button @click="resetStore">Reset</button>
-        <rate-input-card :rate-options="rateOptions"/>
-        <plan-input-card :plan-options="planOptions"/>
-        <payments-input-card :payments-options="paymentsOptions"/>
-      </div>
-      <display
-          :rate-options="rateOptions"
-          :plan-options="planOptions"
-          :payments-options="paymentsOptions"/>
+      <all-options />
+      <display />
     </main>
     <footer><span>©2019 Madlab Group</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
 import MadlabHeader from '@/components/MadlabHeader.vue';
-import RateInputCard from '@/components/RateInputCard.vue';
-import PlanInputCard from '@/components/PlanInputCard.vue';
-import PaymentsInputCard from '@/components/PaymentsInputCard.vue';
 import Display from '@/components/Display.vue';
-import PDF from '@/components/PDF.vue';
-import SwitchView from '@/components/SwitchView.vue';
+import AllOptions from '@/components/options/AllOptions.vue';
 
 export default {
   name: 'CoachView',
   components: {
     MadlabHeader,
-    RateInputCard,
-    PlanInputCard,
-    PaymentsInputCard,
     Display,
-    PDF,
-    SwitchView,
+    AllOptions,
   },
   computed: {
-    ...mapState(['paymentsOptions', 'rateOptions', 'planOptions']),
   },
   methods: {
-    ...mapMutations(['resetStore']),
   }
 }
 </script>
 
 <style lang="scss">
+#coach-view {
 
+  main {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-column-gap: 1rem;
+
+    h1 {
+      grid-column: 1 / 3;
+    }
+  }
+}
 </style>
