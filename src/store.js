@@ -5,6 +5,7 @@ import vuejsStorage from 'vuejs-storage';
 Vue.use(Vuex)
 
 const defaultState = {
+  gymnName: 'Madlab School of Fitness',
   rateOptions: {
     monthlyRate: 100,
     ptRate: 60,
@@ -54,6 +55,11 @@ const defaultState = {
       label: "2x/ Month",
       divisor: 24,
     }, {
+      id: "fourWeeks",
+      value: true,
+      label: "4 Weeks",
+      divisor: 13,
+    }, {
       id: "monthly",
       value: true,
       label: "Monthly",
@@ -68,7 +74,7 @@ const defaultState = {
 };
 
 export default new Vuex.Store({
-  state: JSON.parse(JSON.stringify(defaultState)),
+  state: {...JSON.parse(JSON.stringify(defaultState)), view: 'Coach'},
   getters: {
   },
   mutations: {
@@ -86,6 +92,12 @@ export default new Vuex.Store({
       state.rateOptions = JSON.parse(JSON.stringify(defaultState.rateOptions));
       state.frequencyOptions = JSON.parse(JSON.stringify(defaultState.frequencyOptions));
       state.planOptions = JSON.parse(JSON.stringify(defaultState.planOptions));
+    },
+    switchView(state) {
+      if ('Client' === state.view)
+        state.view = 'Coach';
+      else
+        state.view = 'Client';
     }
   },
   actions: {

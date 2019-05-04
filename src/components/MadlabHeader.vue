@@ -1,17 +1,26 @@
 <template>
   <header>
-    <nav>
+    <nav v-if="'Coach' === view">
       <a href="http://madlabgroup.com/" target="_blank">
         <img src="../assets/logo.png" alt="MadLab Group" />
       </a>
       <img src="../assets/moosecock_rooster_final.png" alt="Moose Cock" />
     </nav>
+    <nav v-if="'Client' === view">
+      <h1>{{gymnName}}</h1>
+    </nav>
   </header>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'MadlabHeader',
+  props: ['view'],
+  computed: {
+    ...mapState(['gymnName']),
+  }
 }
 </script>
 

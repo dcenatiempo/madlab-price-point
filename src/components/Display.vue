@@ -41,6 +41,7 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-end;
+  margin: auto;
   // justify-content: space-between;
 }
 </style>

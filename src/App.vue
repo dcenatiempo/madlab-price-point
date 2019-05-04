@@ -1,46 +1,24 @@
 <template>
   <div id="app">
-    <MadlabHeader />
-    <main>
-      <h1>Hybrid Pricing Calculator</h1>
-      <div class="options">
-        <button @click="resetStore">Reset</button>
-        <rate-input-card :rate-options="rateOptions"/>
-        <plan-input-card :plan-options="planOptions"/>
-        <frequency-input-card :frequency-options="frequencyOptions"/>
-      </div>
-      <display
-          :rate-options="rateOptions"
-          :plan-options="planOptions"
-          :frequency-options="frequencyOptions"/>
-    </main>
-    <footer><span>©2019 Madlab Group</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
+    <client-view v-if="'Client' === view"/>
+    <coach-view v-if="'Coach' === view"/>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
-import MadlabHeader from '@/components/MadlabHeader.vue';
-import RateInputCard from '@/components/RateInputCard.vue';
-import PlanInputCard from '@/components/PlanInputCard.vue';
-import FrequencyInputCard from '@/components/FrequencyInputCard.vue';
-import Display from '@/components/Display.vue';
+import { mapState } from 'vuex';
+import CoachView from '@/components/CoachView.vue';
+import ClientView from '@/components/ClientView.vue';
 
 export default {
   name: 'app',
   components: {
-    MadlabHeader,
-    RateInputCard,
-    PlanInputCard,
-    FrequencyInputCard,
-    Display,
+    CoachView,
+    ClientView,
   },
   computed: {
-    ...mapState(['frequencyOptions', 'rateOptions', 'planOptions']),
+    ...mapState(['view']),
   },
-  methods: {
-    ...mapMutations(['resetStore']),
-  }
 }
 </script>
 
