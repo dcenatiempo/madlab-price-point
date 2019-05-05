@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <label><span @click="collapsed = !collapsed">{{label}}</span><help-icon :text="tooltip"/></label>
+    <label><span @click="collapsed = !collapsed"><caret-icon :down="!collapsed"/>{{label}}</span><help-icon :text="tooltip"/></label>
     <div class="collapsable" :class="{collapsed: !collapsed}">
       <slot />
     </div>
@@ -9,11 +9,13 @@
 
 <script>
 import HelpIcon from '@/components/HelpIcon.vue';
+import CaretIcon from '@/components/CaretIcon.vue';
 
 export default {
   name: 'OptionGroup',
   components: {
     HelpIcon,
+    CaretIcon
   },
   data() {
     return  {
@@ -37,7 +39,7 @@ export default {
   div.collapsable {
     padding-top: 1em;
     overflow: hidden;
-    transition: height ease 500ms;
+    // transition: transform ease 500ms;
 
     &.collapsed {
       height: 0;
@@ -51,12 +53,12 @@ export default {
 
   > label {
     display: flex;
-    flex-flow: row nowrap;
     align-items: center;
     font-weight: 100;
 
     span:first-child {
       margin-right: .5em;
+      display: flex;
     }
   }
 }
