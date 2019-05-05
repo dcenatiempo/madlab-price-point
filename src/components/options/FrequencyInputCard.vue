@@ -50,6 +50,7 @@ export default {
 
 <style lang="scss">
 #frequency-input-card {
+  border: none;
   .list {
     display: grid;
     grid-template-columns: max-content max-content;

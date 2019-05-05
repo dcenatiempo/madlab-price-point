@@ -1,7 +1,7 @@
 <template>
   <div class="plan-row">
-    <span v-if="labelOnly">{{planOption.label}}</span>
-    <span v-else >{{amount}}</span>
+    <span v-if="labelOnly"><strong>{{planOption.label}}</strong> - {{planOption.value}} PT/yr</span>
+    <span v-else>{{amount}}</span>
   </div>
 </template>
 

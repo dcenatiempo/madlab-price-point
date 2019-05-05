@@ -2,10 +2,10 @@
   <div id="client-view">
     <madlab-header view="Client"/>
     <main>
-      <h1>{{gymnName}}</h1>
+      <!-- <h1>{{gymnName}}</h1> -->
       <div class="options">
-        <p-d-f />
         <switch-view />
+        <p-d-f />
       </div>
       <display />
     </main>
@@ -39,11 +39,24 @@ export default {
 
 <style lang="scss">
 #client-view {
-  main {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 20px;
+
+   main {
+    margin-top: 2rem;
     flex-grow: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-column-gap: 1rem;
+    align-items: flex-start;
+
+    .options {
+      display: grid;
+      grid-gap: 1rem;
+      align-content: flex-start;
+    }
   }
 }
 </style>

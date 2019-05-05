@@ -9,7 +9,10 @@ export default {
   computed: {
     ...mapState(['view']),
     btnText() {
-      return `Switch to ${this.view} View`;
+      let view = 'Client';
+      if ('Client' === this.view)
+        view = 'Coach';
+      return `Switch to ${view} View`;
     }
   },
   methods: {

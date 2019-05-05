@@ -31,13 +31,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  padding: 20px;
-  max-width: 960px;
+  max-width: 1200px;
   width: 100vw;
   margin: auto;
-  min-height: 100vh;
-  display: flex;
-  flex-flow: column nowrap;
 
   button {
     font-size: 1em;

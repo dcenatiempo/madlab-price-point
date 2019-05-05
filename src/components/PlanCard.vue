@@ -1,6 +1,6 @@
 <template>
   <div class="plan-card">
-    <h3>{{paymentsOption.label}}</h3>
+    <h4>{{paymentsOption.label}}</h4>
     <plan-row
         v-for="plan in planOptions"
         :key="`plan-row-${paymentsOption.id}-${plan.id}`"
@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss">
 .plan-card {
+  flex-shrink: 0;
   h3 {
     margin: 1rem;
   }

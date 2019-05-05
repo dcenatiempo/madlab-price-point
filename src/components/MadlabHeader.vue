@@ -6,7 +6,7 @@
       </a>
       <img src="../assets/moosecock_rooster_final.png" alt="Moose Cock" />
     </nav>
-    <nav v-if="'Client' === view">
+    <nav class="client" v-if="'Client' === view">
       <h1>{{gymnName}}</h1>
     </nav>
   </header>
@@ -42,7 +42,13 @@ header {
       height: 140px;
       margin-top: -20px;
     }
+
+    &.client {
+      justify-content: center;
+      h1 {
+        font-size: 2em;
+      }
+    }
   }
-  
 }
 </style>

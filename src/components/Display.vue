@@ -4,15 +4,16 @@
         v-for="frequency in filteredFrequencyOptions"
         :key="`frequency-display-${frequency.id}`"
         :id="`${frequency.id}-display`" class="display">
-      <h2>{{frequency.label}}</h2>
+      <h2>{{frequency.label}} Classes</h2>
       <div class="row">
 
-        <div>
+        <div style="flex-shrink: 0;">
+          <h4 style="text-align: right; margin: 1rem 0 0 1rem;">Payments:</h4>
           <plan-row
               v-for="option in filteredPlanOptions"
               :key="`${frequency.id}-plan-label-${option.id}`"
               :plan-option="option" :label-only="true"
-              style="border-left: none"/>
+              style="border-left: none;"/>
         </div>
       
         <plan-card
@@ -53,8 +54,24 @@ export default {
 
 <style lang="scss">
 #display-container {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+
   .display {
-    border: solid;
+    border: solid 1px gray;
+    border-radius: 4px;
+    margin: 0 auto 2rem;
+    overflow-x: scroll;
+
+    h2 {
+      margin: 1rem 1rem 0;
+    }
+    h4 {
+      margin: 1rem 1rem 0;
+    }
+
     .row {
       display: flex;
       flex-flow: row nowrap;

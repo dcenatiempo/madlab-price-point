@@ -2,7 +2,7 @@
   <option-group
       id="rate-input-card"
       label="Gymn Options"
-      :tooltip="null">
+      :tooltip="tooltip">
     <div class="list">
       <gymn-name-input />
       <label>Monthly Rate</label>
