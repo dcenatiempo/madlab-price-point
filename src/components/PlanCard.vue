@@ -30,8 +30,11 @@ export default {
     margin: 1rem;
   }
 
-  div:nth-child(2n+1) {
+  div:nth-child(2n) {
     background: rgb(232, 235, 236);
+  }
+  div:nth-child(2n+1) {
+    background: rgb(246, 246, 247);
   }
   // margin: 0 5px;
 }

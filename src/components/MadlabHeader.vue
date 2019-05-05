@@ -28,6 +28,7 @@ export default {
 <style scoped lang="scss">
 header {
   border-bottom:2px solid gray;
+  height: 120px;
   nav {
     display: flex;
     justify-content: space-between;
@@ -47,6 +48,7 @@ header {
       justify-content: center;
       h1 {
         font-size: 3em;
+        margin-bottom: 1.5rem;
       }
     }
   }

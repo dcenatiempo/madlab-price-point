@@ -21,8 +21,9 @@ export default {
       let time = this.getTime();
       let filename = `${this.gymnName.replace(/\s/g, '_')}_price_matrix_${time}.pdf`;
       let element = this.getDisplay();
+      let margin = 2 === this.numCards ? .25 : 1;
       let opt = {
-        margin:       .5,
+        margin:       [margin, margin, 0, margin],
         filename:     filename,
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2 },
@@ -37,9 +38,9 @@ export default {
       return now.toLocaleDateString('en-US', options).replace(/\s/g, '_').replace(/,/g, '');
     },
     getDisplay() {
-      let margin = 2 === this.numCards ? 16 : 64;
+      let margin = 2 === this.numCards ? 10 : 64;
       let h1 = document.createElement('h1');
-      h1.setAttribute('style', `margin: 0 auto ${margin}px; font-size: 3em;`)
+      h1.setAttribute('style', `margin: 0 auto ${margin}px; font-size: 2.75em;`)
       let gymn = document.createTextNode(this.gymnName);
       h1.appendChild(gymn);
       let display = document.querySelector('#display-container');

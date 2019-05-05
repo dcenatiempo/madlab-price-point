@@ -51,9 +51,9 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  border-left: solid 1px gray;
-  border-top: solid 1px gray;
-  padding: .5em;
+  border-left: solid 3px white;
+  border-top: solid 3px white;
+  padding: .75em;
   
 }
 </style>
