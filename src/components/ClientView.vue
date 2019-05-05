@@ -9,7 +9,7 @@
       </div>
       <display />
     </main>
-    <footer><span>©2019 {{gymnName}}</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
+    <footer><span>©2019 Madlab Group</span><span>Developed by &nbsp;<a href="http://dcenatiempo.com/" target="_blank">dcenatiempo.com</a></span></footer>
   </div>
 </template>
 

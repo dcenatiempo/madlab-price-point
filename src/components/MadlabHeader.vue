@@ -27,7 +27,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 header {
-  border-bottom:2px solid #777;
+  border-bottom:2px solid gray;
   nav {
     display: flex;
     justify-content: space-between;
@@ -46,7 +46,7 @@ header {
     &.client {
       justify-content: center;
       h1 {
-        font-size: 2em;
+        font-size: 3em;
       }
     }
   }

@@ -37,7 +37,6 @@ export default {
       return now.toLocaleDateString('en-US', options).replace(/\s/g, '_').replace(/,/g, '');
     },
     getDisplay() {
-      debugger
       let margin = 2 === this.numCards ? 16 : 64;
       let h1 = document.createElement('h1');
       h1.setAttribute('style', `margin: 0 auto ${margin}px; font-size: 3em;`)

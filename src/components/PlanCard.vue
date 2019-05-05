@@ -29,6 +29,10 @@ export default {
   h3 {
     margin: 1rem;
   }
+
+  div:nth-child(2n+1) {
+    background: rgb(232, 235, 236);
+  }
   // margin: 0 5px;
 }
 </style>

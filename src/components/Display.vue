@@ -7,7 +7,7 @@
       <h2>{{frequency.label}} Classes</h2>
       <div class="row">
 
-        <div style="flex-shrink: 0;">
+        <div class="left-label">
           <h4 style="text-align: right; margin: 1rem 0 0 1rem;">Payments:</h4>
           <plan-row
               v-for="option in filteredPlanOptions"
@@ -64,6 +64,13 @@ export default {
     border-radius: 4px;
     margin: 0 auto 2rem;
     overflow-x: scroll;
+
+    .left-label {
+      flex-shrink: 0;
+      div:nth-child(2n+1) {
+      background: rgb(232, 235, 236);
+  }
+    }
 
     h2 {
       margin: 1rem 1rem 0;
