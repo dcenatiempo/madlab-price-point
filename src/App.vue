@@ -40,6 +40,7 @@ export default {
     padding: 1em;
     border: 1px solid gray;
     border-radius: .25em;
+    background: white;
   }
   input {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

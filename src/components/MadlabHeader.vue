@@ -49,6 +49,10 @@ header {
       h1 {
         font-size: 3em;
         margin-bottom: 1.5rem;
+        max-width: 100vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
