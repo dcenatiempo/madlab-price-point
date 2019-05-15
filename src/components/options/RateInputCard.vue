@@ -21,7 +21,7 @@
       <money-input
           v-model="rateOptions.ptRate"
           @input="setRateOptions(rateOptions)"
-          :min="60"
+          :min="50"
           :max="500"/>
     </div>
   </option-group>
