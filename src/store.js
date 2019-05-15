@@ -68,6 +68,16 @@ const defaultState = {
       value: true,
       label: "Quarterly",
       divisor: 4
+    }, {
+      id: "sixMonths",
+      value: true,
+      label: "6 Months",
+      divisor: 2
+    }, {
+      id: "yearly",
+      value: true,
+      label: "Yearly",
+      divisor: 1
     },
   ],
   frequencyOptions: [
