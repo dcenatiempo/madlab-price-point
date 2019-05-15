@@ -7,6 +7,7 @@ Vue.use(Vuex)
 const defaultState = {
   rateOptions: {
     monthlyRate: 100,
+    weeklyRate: 23.08,
     ptRate: 60,
   },
   planOptions: [

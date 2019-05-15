@@ -8,9 +8,15 @@
       <label>Monthly Rate</label>
       <money-input
           v-model="rateOptions.monthlyRate"
-          @input="setRateOptions(rateOptions)"
+          @input="syncBaseRates(rateOptions, 'monthly')"
           :min="100"
           :max="1000"/>
+      <label>Weekly Rate</label>
+      <money-input
+          v-model="rateOptions.weeklyRate"
+          @input="syncBaseRates(rateOptions, 'weekly')"
+          :min="23.07"
+          :max="500"/>
       <label>PT Rate</label>
       <money-input
           v-model="rateOptions.ptRate"
@@ -42,6 +48,14 @@ export default {
   props: ['rateOptions'],
   methods: {
     ...mapMutations(['setRateOptions']),
+    syncBaseRates(options, rateChanged) {
+      if ('monthly' == rateChanged) {
+        options.weeklyRate = options.monthlyRate * 12 / 52;
+      } else if ('weekly' == rateChanged) {
+        options.monthlyRate = options.weeklyRate * 52 / 12;
+      }
+      this.setRateOptions(options);
+    },
   }
 }
 </script>
