@@ -11,7 +11,7 @@ export default {
   components: {},
   props: [],
   computed: {
-    ...mapState(['gymnName', 'frequencyOptions']),
+    ...mapState(['gymName', 'frequencyOptions']),
     numCards() {
       return this.frequencyOptions.filter(option => true === option.checked).length;
     }
@@ -19,7 +19,7 @@ export default {
   methods: {
     createPDF() {
       let time = this.getTime();
-      let filename = `${this.gymnName.replace(/\s/g, '_')}_price_matrix_${time}.pdf`;
+      let filename = `${this.gymName.replace(/\s/g, '_')}_price_matrix_${time}.pdf`;
       let element = this.getDisplay();
       let margin = 2 === this.numCards ? .25 : 1;
       let opt = {
@@ -41,8 +41,8 @@ export default {
       let margin = 2 === this.numCards ? 10 : 64;
       let h1 = document.createElement('h1');
       h1.setAttribute('style', `margin: 0 auto ${margin}px; font-size: 2.75em;`)
-      let gymn = document.createTextNode(this.gymnName);
-      h1.appendChild(gymn);
+      let gym = document.createTextNode(this.gymName);
+      h1.appendChild(gym);
       let display = document.querySelector('#display-container');
       let pdf = display.cloneNode(true);
       pdf.setAttribute('style', 'display: flex; flex-flow: column nowrap; align-items: center;')

@@ -7,7 +7,7 @@
       <img src="../assets/moosecock_rooster_final.png" alt="Moose Cock" />
     </nav>
     <nav class="client" v-if="'Client' === view">
-      <h1>{{gymnName}}</h1>
+      <h1>{{gymName}}</h1>
     </nav>
   </header>
 </template>
@@ -19,7 +19,7 @@ export default {
   name: 'MadlabHeader',
   props: ['view'],
   computed: {
-    ...mapState(['gymnName']),
+    ...mapState(['gymName']),
   }
 }
 </script>

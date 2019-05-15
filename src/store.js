@@ -90,7 +90,7 @@ export default new Vuex.Store({
   state: {
     ...JSON.parse(JSON.stringify(defaultState)),
     view: 'Coach',
-    gymnName: 'Madlab School of Fitness',
+    gymName: 'Madlab School of Fitness',
     },
   getters: {
   },
@@ -107,8 +107,8 @@ export default new Vuex.Store({
     setFrequencyOptions(state, options) {
       state.frequencyOptions = options;
     },
-    setGymnName(state, name) {
-      state.gymnName = name;
+    setGymName(state, name) {
+      state.gymName = name;
     },
     resetStore(state) {
       // state = JSON.parse(JSON.stringify(defaultState));
@@ -128,7 +128,7 @@ export default new Vuex.Store({
   },
   plugins: [
     vuejsStorage({
-      keys: ['rateOptions', 'planOptions', 'paymentsOptions', 'gymnName'],
+      keys: ['rateOptions', 'planOptions', 'paymentsOptions', 'gymName'],
       namespace: 'madlab-price-point-calculator-persist',
     })
   ]

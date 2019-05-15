@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      tooltip: "Careful! This will reset the Gymn Rate Options, Plan Options, and Payment Options!"
+      tooltip: "Careful! This will reset the Gym Rate Options, Plan Options, and Payment Options!"
     }
   },
   methods: {

@@ -2,7 +2,7 @@
   <div id="client-view">
     <madlab-header view="Client"/>
     <main>
-      <!-- <h1>{{gymnName}}</h1> -->
+      <!-- <h1>{{gymName}}</h1> -->
       <div class="options">
         <switch-view />
         <p-d-f />
@@ -29,7 +29,7 @@ export default {
     SwitchView,
   },
   computed: {
-    ...mapState(['gymnName']),
+    ...mapState(['gymName']),
   },
   methods: {
     ...mapMutations(['resetStore']),

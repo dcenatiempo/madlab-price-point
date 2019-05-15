@@ -1,22 +1,22 @@
 <template>
   <input
-      id="gymn-name-input"
+      id="gym-name-input"
       type="text"
-      v-model="gymnName"
+      v-model="gymName"
       @input="handleInput"/>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex';
 export default {
-  name: 'GymnNameInput',
+  name: 'GymNameInput',
   computed: {
-    ...mapState(['gymnName']),
+    ...mapState(['gymName']),
   },
   methods: {
-    ...mapMutations(['setGymnName']),
+    ...mapMutations(['setGymName']),
     handleInput(e) {
-      this.setGymnName(e.target.value);
+      this.setGymName(e.target.value);
     }
   }
 }
