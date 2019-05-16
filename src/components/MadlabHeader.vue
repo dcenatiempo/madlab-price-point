@@ -4,10 +4,11 @@
       <a href="http://madlabgroup.com/" target="_blank">
         <img src="../assets/logo.png" alt="MadLab Group" />
       </a>
-      <img src="../assets/moosecock_rooster_final.png" alt="Moose Cock" />
+      <img src="../assets/moosecock_rooster_final.png" alt="Moose Cock" class="moose" />
     </nav>
     <nav class="client" v-if="'Client' === view">
-      <h1>{{gymName}}</h1>
+      <img v-if="logo" :src="logo" />
+      <h1 v-else>{{gymName}}</h1>
     </nav>
   </header>
 </template>
@@ -19,7 +20,7 @@ export default {
   name: 'MadlabHeader',
   props: ['view'],
   computed: {
-    ...mapState(['gymName']),
+    ...mapState(['gymName', 'logo']),
   }
 }
 </script>
@@ -40,15 +41,22 @@ header {
     
     > img {
       max-height: 24vw;
-      height: 140px;
-      margin-top: -20px;
+      height: 90px;
+      
+
+      &.moose {
+        height: 140px;
+        margin-top: -20px;
+      }
     }
 
     &.client {
       justify-content: center;
+      align-items: center;
+
       h1 {
         font-size: 3em;
-        margin-bottom: 1.5rem;
+        margin: 0;
         max-width: 100vw;
         white-space: nowrap;
         overflow: hidden;

@@ -1,8 +1,8 @@
 <template>
   <div id="coach-view">
     <madlab-header view="Coach"/>
+    <h1>Hybrid Pricing Calculator</h1>
     <main>
-      <h1>Hybrid Pricing Calculator</h1>
       <all-options />
       <display />
     </main>

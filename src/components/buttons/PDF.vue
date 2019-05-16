@@ -11,7 +11,7 @@ export default {
   components: {},
   props: [],
   computed: {
-    ...mapState(['gymName', 'frequencyOptions']),
+    ...mapState(['gymName', 'logo', 'frequencyOptions']),
     numCards() {
       return this.frequencyOptions.filter(option => true === option.checked).length;
     }
@@ -23,7 +23,7 @@ export default {
       let element = this.getDisplay();
       let margin = 2 === this.numCards ? .25 : 1;
       let opt = {
-        margin:       [margin, margin, 0, margin],
+        margin:       [margin, 0, 0, 0],
         filename:     filename,
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2 },
@@ -38,15 +38,25 @@ export default {
       return now.toLocaleDateString('en-US', options).replace(/\s/g, '_').replace(/,/g, '');
     },
     getDisplay() {
-      let margin = 2 === this.numCards ? 10 : 64;
-      let h1 = document.createElement('h1');
-      h1.setAttribute('style', `margin: 0 auto ${margin}px; font-size: 2.75em;`)
-      let gym = document.createTextNode(this.gymName);
-      h1.appendChild(gym);
+      let margin = 2 === this.numCards ? 0 : 64;
+      let header = document.createElement('header');
+      header.setAttribute('style', `display: flex; justify-content: center; margin: 0 0 ${margin}px; align-items: center;`);
+      if (this.logo) {
+        let logo = new Image();
+        logo.src = this.logo;
+        logo.setAttribute('style', 'margin-right: 1em');
+        header.appendChild(logo);
+      } else {
+        let h1 = document.createElement('h1');
+        h1.setAttribute('style', `font-size: 2.75em; margin: 0`);
+        let gym = document.createTextNode(this.gymName);
+        h1.appendChild(gym);
+        header.appendChild(h1);
+      }
       let display = document.querySelector('#display-container');
       let pdf = display.cloneNode(true);
       pdf.setAttribute('style', 'display: flex; flex-flow: column nowrap; align-items: center;')
-      pdf.insertBefore(h1, pdf.firstChild);
+      pdf.insertBefore(header, pdf.firstChild);
       return pdf;
     }
   }

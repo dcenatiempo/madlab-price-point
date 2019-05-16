@@ -65,6 +65,12 @@ export default {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
+
+  &:nth-child(2) {
+    .display {
+      margin-bottom: 2rem;
+    }
+  }
   .wrapper {
     padding-right: 2rem;
     margin: auto;
@@ -75,9 +81,9 @@ export default {
     align-items: center;
     // border: solid 1px gray;
     border-radius: 4px;
-    margin: 0 auto 2rem;
     overflow-x: scroll;
     box-shadow: 3px 3px 10px rgba(150, 150, 150, 0.5);
+    margin: 0 auto;
 
     .left-label {
       flex-shrink: 0;

@@ -5,6 +5,7 @@
       :tooltip="tooltip">
     <div class="list">
       <gym-name-input />
+      <image-uploader width="226px"/>
       <label>Monthly Rate</label>
       <money-input
           v-model="rateOptions.monthlyRate"
@@ -32,6 +33,7 @@ import { mapMutations } from 'vuex';
 import OptionGroup from '@/components/options/OptionGroup.vue';
 import MoneyInput from '@/components/inputs/MoneyInput.vue';
 import GymNameInput from '@/components/options/GymNameInput.vue';
+import ImageUploader from '@/components/inputs/ImageUploader.vue';
 
 export default {
   name: 'RateInputCard',
@@ -39,13 +41,15 @@ export default {
     OptionGroup,
     MoneyInput,
     GymNameInput,
+    ImageUploader,
   },
   data() {
     return  {
-      tooltip: 'Enter gym name, monthly unlimited class rate (rate BEFORE any PT hybrid sessions are included), and PT session rate'
+      tooltip: 'Enter gym name, monthly (or weekly) unlimited class rate (rate BEFORE any PT hybrid sessions are included), and PT session rate'
     }
   },
   props: ['rateOptions'],
+  computed: {},
   methods: {
     ...mapMutations(['setRateOptions']),
     syncBaseRates(options, rateChanged) {
@@ -64,7 +68,7 @@ export default {
 #rate-input-card {
   .list {
     display: grid;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: 120px 1fr;
     grid-gap: .5em;
     align-items: center;
 
@@ -73,6 +77,9 @@ export default {
       text-align: right;
     }
     #gym-name-input {
+      grid-column: 1 / 3;
+    }
+    .image-uploader {
       grid-column: 1 / 3;
     }
   }

@@ -102,8 +102,10 @@ export default new Vuex.Store({
     ...JSON.parse(JSON.stringify(defaultState)),
     view: 'Coach',
     gymName: 'Madlab School of Fitness',
+    logo: null,
     },
   getters: {
+    logo: state => state.logo,
   },
   mutations: {
     setRateOptions(state, options) {
@@ -120,6 +122,9 @@ export default new Vuex.Store({
     },
     setGymName(state, name) {
       state.gymName = name;
+    },
+    setLogo(state, val) {
+      state.logo = val;
     },
     resetStore(state) {
       // state = JSON.parse(JSON.stringify(defaultState));
@@ -139,7 +144,7 @@ export default new Vuex.Store({
   },
   plugins: [
     vuejsStorage({
-      keys: ['rateOptions', 'planOptions', 'paymentsOptions', 'gymName'],
+      keys: ['rateOptions', 'planOptions', 'paymentsOptions', 'gymName', 'logo'],
       namespace: 'madlab-price-point-calculator-persist',
     })
   ]
