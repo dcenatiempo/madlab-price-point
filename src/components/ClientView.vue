@@ -48,7 +48,7 @@ export default {
     margin-top: 2rem;
     flex-grow: 1;
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: max-content minmax(0, 1fr);
     grid-column-gap: 1rem;
     align-items: flex-start;
 
@@ -56,6 +56,20 @@ export default {
       display: grid;
       grid-gap: 1rem;
       align-content: flex-start;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    main {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .options {
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 1rem;
+    }
+    #display-container {
+      .wrapper {
+        padding-right: 0;
+      }
     }
   }
 }

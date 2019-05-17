@@ -61,6 +61,7 @@ export default {
 
 <style lang="scss">
 #display-container {
+  width: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   display: flex;
   flex-flow: row wrap;
@@ -72,8 +73,9 @@ export default {
     }
   }
   .wrapper {
-    padding-right: 2rem;
+    padding-right: 1rem;
     margin: auto;
+    max-width: 100%;
   }
   .display {
     display: flex;
@@ -107,6 +109,8 @@ export default {
       flex-flow: row nowrap;
       align-items: flex-end;
       margin: auto;
+      overflow-x: scroll;
+      width: 100%;
       // justify-content: space-between;
     }
   }

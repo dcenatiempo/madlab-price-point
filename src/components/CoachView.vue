@@ -39,12 +39,23 @@ export default {
   main {
     flex-grow: 1;
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: max-content minmax(0, 1fr);
     grid-column-gap: 1rem;
     align-items: flex-start;
 
     h1 {
       grid-column: 1 / 3;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    main {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    #display-container {
+      .wrapper {
+        padding-right: 0;
+      }
     }
   }
 }
