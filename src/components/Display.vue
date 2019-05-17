@@ -20,14 +20,16 @@
                 style="border-left: none;"/>
           </div>
         
-          <plan-card
-              v-for="option in filteredPaymentsOptions"
-              :key="`${frequency.id}-plan-card-${option.id}`"
-              :payments-option="option"
-              :plan-options="filteredPlanOptions"
-              :rate-options="rateOptions"
-              :frequency-option="frequency">
-          </plan-card>
+          <div class="right-content row">
+            <plan-card
+                v-for="option in filteredPaymentsOptions"
+                :key="`${frequency.id}-plan-card-${option.id}`"
+                :payments-option="option"
+                :plan-options="filteredPlanOptions"
+                :rate-options="rateOptions"
+                :frequency-option="frequency">
+            </plan-card>
+          </div>
 
         </div>
 
@@ -89,11 +91,26 @@ export default {
 
     .left-label {
       flex-shrink: 0;
+      box-shadow: -3px 15px 13px rgba(0, 0, 0, .2);
+      z-index: 1;
+      border-right: 3px solid white;
+
       div:nth-child(2n) {
         background: rgb(232, 235, 236);
       }
       div:nth-child(2n+1) {
         background: rgb(246, 246, 247);
+      }
+    }
+
+    .right-content {
+      overflow-x: scroll;
+      // border-left: 4px solid white;
+
+      div:first-child {
+        .plan-row {
+          border-left: none;
+        }
       }
     }
 
@@ -109,7 +126,7 @@ export default {
       flex-flow: row nowrap;
       align-items: flex-end;
       margin: auto;
-      overflow-x: scroll;
+      // overflow-x: scroll;
       width: 100%;
       // justify-content: space-between;
     }

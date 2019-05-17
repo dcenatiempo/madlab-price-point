@@ -26,6 +26,7 @@ export default {
 <style lang="scss">
 .plan-card {
   flex-shrink: 0;
+  
   h3 {
     margin: 1rem;
   }

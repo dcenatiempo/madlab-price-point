@@ -44,5 +44,10 @@ export default {
 .options {
       display: flex;
       flex-flow: column nowrap;
+
+      label {
+        display: flex;
+        justify-content: space-between;
+      }
     }
 </style>
