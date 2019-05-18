@@ -4,7 +4,9 @@
       label="Gym Options"
       :tooltip="tooltip">
     <div class="list">
+      <label>Gym Name</label>
       <gym-name-input />
+      <label>Logo</label>
       <image-uploader width="226px"/>
       <label>Monthly Rate</label>
       <money-input

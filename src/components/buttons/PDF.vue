@@ -46,13 +46,13 @@ export default {
         logo.src = this.logo;
         logo.setAttribute('style', 'margin-right: 1em');
         header.appendChild(logo);
-      } else {
-        let h1 = document.createElement('h1');
-        h1.setAttribute('style', `font-size: 2.75em; margin: 0`);
-        let gym = document.createTextNode(this.gymName);
-        h1.appendChild(gym);
-        header.appendChild(h1);
       }
+      let h1 = document.createElement('h1');
+      h1.setAttribute('style', `font-size: 2.75em; margin: 0`);
+      let gym = document.createTextNode(this.gymName);
+      h1.appendChild(gym);
+      header.appendChild(h1);
+      
       let display = document.querySelector('#display-container');
       let pdf = display.cloneNode(true);
       pdf.setAttribute('style', 'display: flex; flex-flow: column nowrap; align-items: center;')

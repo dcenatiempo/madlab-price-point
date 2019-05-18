@@ -8,7 +8,7 @@
     </nav>
     <nav class="client" v-if="'Client' === view">
       <img v-if="logo" :src="logo" />
-      <h1 v-else>{{gymName}}</h1>
+      <h1>{{gymName}}</h1>
     </nav>
   </header>
 </template>
